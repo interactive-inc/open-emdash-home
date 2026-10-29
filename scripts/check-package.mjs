@@ -105,7 +105,7 @@ Astro.response.headers.set('Content-Security-Policy', "frame-ancestors 'none'");
   const developmentPort = await freePort();
   const developmentOrigin = `http://127.0.0.1:${developmentPort}`;
   const astroCli = join(fixture, 'node_modules/astro/bin/astro.mjs');
-  await run(process.execPath, [astroCli, 'dev', '--host', '127.0.0.1', '--port', String(developmentPort)]);
+  await run(process.execPath, [astroCli, 'dev', '--background', '--host', '127.0.0.1', '--port', String(developmentPort)]);
   hasDevServer = true;
   await waitForServer(developmentOrigin);
   const smokeOutput = await run(process.execPath, [join(example, 'scripts/smoke.mjs')], fixture, { ...environment, SMOKE_ORIGIN: developmentOrigin });
