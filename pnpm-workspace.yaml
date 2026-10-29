@@ -1,0 +1,11 @@
+packages:
+  - packages/*
+  - apps/*
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+# Security fixes for exact transitive pins in EmDash and Cloudflare tooling.
+overrides:
+  'zod@>=4.0.0 <4.6.6': 4.6.7
+  'undici@>=7.0.0 <7.30.1': 7.30.1

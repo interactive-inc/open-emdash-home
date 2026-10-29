@@ -1,0 +1,7 @@
+{
+  "apps": {
+    "apps/example": {
+      "name": "emdash-home.open"
+    }
+  }
+}

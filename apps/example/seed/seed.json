@@ -1,0 +1,571 @@
+{
+  "version": "1",
+  "defaultLocale": "ja",
+  "meta": {
+    "name": "Open Studio",
+    "description": "Chat-authored pages powered by EmDash and json-render"
+  },
+  "settings": {
+    "title": "Open Studio",
+    "description": "会話から、あなたらしいサイトをつくろう。"
+  },
+  "collections": [
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "labelSingular": "Page",
+      "group": "Site",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "seo"
+      ],
+      "urlPattern": "/{slug}",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "widget": "site-builder:managed",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text",
+          "widget": "site-builder:managed"
+        },
+        {
+          "slug": "document",
+          "label": "ページプレビュー",
+          "type": "json",
+          "widget": "site-builder:page-preview",
+          "required": true
+        }
+      ]
+    },
+    {
+      "slug": "posts",
+      "label": "Posts",
+      "labelSingular": "Post",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search"
+      ],
+      "routable": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText"
+        },
+        {
+          "slug": "excerpt",
+          "label": "Excerpt",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "pages": [
+      {
+        "id": "home-page",
+        "slug": "home",
+        "status": "published",
+        "data": {
+          "title": "Open Studio — 話すたび、サイトが育つ。",
+          "description": "ページも、デザインも、コンテンツも。会話から、あなたらしいサイトをつくろう。",
+          "document": {
+            "version": 1,
+            "spec": {
+              "root": "page",
+              "elements": {
+                "page": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "none"
+                  },
+                  "children": [
+                    "nav",
+                    "hero",
+                    "features",
+                    "cta",
+                    "footer"
+                  ]
+                },
+                "nav": {
+                  "type": "Section",
+                  "props": {
+                    "spacing": "sm"
+                  },
+                  "children": [
+                    "nav-width"
+                  ]
+                },
+                "nav-width": {
+                  "type": "Container",
+                  "props": {},
+                  "children": [
+                    "nav-row"
+                  ]
+                },
+                "nav-row": {
+                  "type": "Stack",
+                  "props": {
+                    "direction": "horizontal",
+                    "gap": "lg",
+                    "align": "center"
+                  },
+                  "children": [
+                    "brand",
+                    "nav-about",
+                    "nav-contact"
+                  ]
+                },
+                "brand": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "OPEN / STUDIO",
+                    "level": "h2",
+                    "size": "sm"
+                  }
+                },
+                "nav-about": {
+                  "type": "Link",
+                  "props": {
+                    "label": "できること",
+                    "href": "/#features"
+                  }
+                },
+                "nav-contact": {
+                  "type": "Link",
+                  "props": {
+                    "label": "はじめる",
+                    "href": "/#start"
+                  }
+                },
+                "hero": {
+                  "type": "Section",
+                  "props": {
+                    "spacing": "xl"
+                  },
+                  "children": [
+                    "hero-width"
+                  ]
+                },
+                "hero-width": {
+                  "type": "Container",
+                  "props": {},
+                  "children": [
+                    "hero-content"
+                  ]
+                },
+                "hero-content": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "lg"
+                  },
+                  "children": [
+                    "eyebrow",
+                    "headline",
+                    "intro",
+                    "hero-actions"
+                  ]
+                },
+                "eyebrow": {
+                  "type": "Badge",
+                  "props": {
+                    "text": "A website, shaped by conversation"
+                  }
+                },
+                "headline": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "話すたび、\nサイトが育つ。",
+                    "level": "h1",
+                    "size": "xl"
+                  }
+                },
+                "intro": {
+                  "type": "Text",
+                  "props": {
+                    "text": "思いついたことを、言葉にする。\nページも、デザインも、コンテンツも。\n会話から、あなたらしいサイトをつくろう。",
+                    "size": "lg",
+                    "tone": "muted"
+                  }
+                },
+                "hero-actions": {
+                  "type": "Stack",
+                  "props": {
+                    "direction": "horizontal",
+                    "gap": "sm"
+                  },
+                  "children": [
+                    "hero-primary",
+                    "hero-secondary"
+                  ]
+                },
+                "hero-primary": {
+                  "type": "Link",
+                  "props": {
+                    "label": "可能性を見てみる ↗",
+                    "href": "/#features",
+                    "variant": "primary"
+                  }
+                },
+                "hero-secondary": {
+                  "type": "Link",
+                  "props": {
+                    "label": "使い方を読む",
+                    "href": "/guide",
+                    "variant": "secondary"
+                  }
+                },
+                "features": {
+                  "type": "Section",
+                  "props": {
+                    "tone": "muted",
+                    "spacing": "lg",
+                    "id": "features"
+                  },
+                  "children": [
+                    "feature-width"
+                  ]
+                },
+                "feature-width": {
+                  "type": "Container",
+                  "props": {},
+                  "children": [
+                    "feature-content"
+                  ]
+                },
+                "feature-content": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "lg"
+                  },
+                  "children": [
+                    "feature-label",
+                    "feature-heading",
+                    "feature-grid"
+                  ]
+                },
+                "feature-label": {
+                  "type": "Badge",
+                  "props": {
+                    "text": "Made for your next idea"
+                  }
+                },
+                "feature-heading": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "つくることに、集中しよう。",
+                    "level": "h2",
+                    "size": "md"
+                  }
+                },
+                "feature-grid": {
+                  "type": "Grid",
+                  "props": {
+                    "columns": 3,
+                    "gap": "md"
+                  },
+                  "children": [
+                    "card-1",
+                    "card-2",
+                    "card-3"
+                  ]
+                },
+                "card-1": {
+                  "type": "Card",
+                  "props": {},
+                  "children": [
+                    "card-stack-1"
+                  ]
+                },
+                "card-stack-1": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "md"
+                  },
+                  "children": [
+                    "card-title-1",
+                    "card-text-1"
+                  ]
+                },
+                "card-title-1": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "言葉でつくる",
+                    "level": "h3",
+                    "size": "sm"
+                  }
+                },
+                "card-text-1": {
+                  "type": "Text",
+                  "props": {
+                    "text": "「こんなページがほしい」から始めよう。部品の配置も文章の調整も、会話で進められます。",
+                    "tone": "muted"
+                  }
+                },
+                "card-2": {
+                  "type": "Card",
+                  "props": {},
+                  "children": [
+                    "card-stack-2"
+                  ]
+                },
+                "card-stack-2": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "md"
+                  },
+                  "children": [
+                    "card-title-2",
+                    "card-text-2"
+                  ]
+                },
+                "card-title-2": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "確かめて、届ける",
+                    "level": "h3",
+                    "size": "sm"
+                  }
+                },
+                "card-text-2": {
+                  "type": "Text",
+                  "props": {
+                    "text": "下書きをプレビューしてから公開。伝えたいことを、自分のペースで整えられます。",
+                    "tone": "muted"
+                  }
+                },
+                "card-3": {
+                  "type": "Card",
+                  "props": {},
+                  "children": [
+                    "card-stack-3"
+                  ]
+                },
+                "card-stack-3": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "md"
+                  },
+                  "children": [
+                    "card-title-3",
+                    "card-text-3"
+                  ]
+                },
+                "card-title-3": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "いつでも、育てる",
+                    "level": "h3",
+                    "size": "sm"
+                  }
+                },
+                "card-text-3": {
+                  "type": "Text",
+                  "props": {
+                    "text": "ページやテーマはJSONとして保存。公開後の変更も、会話の続きから始められます。",
+                    "tone": "muted"
+                  }
+                },
+                "cta": {
+                  "type": "Section",
+                  "props": {
+                    "tone": "accent",
+                    "spacing": "lg",
+                    "id": "start"
+                  },
+                  "children": [
+                    "cta-width"
+                  ]
+                },
+                "cta-width": {
+                  "type": "Container",
+                  "props": {},
+                  "children": [
+                    "cta-content"
+                  ]
+                },
+                "cta-content": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "lg"
+                  },
+                  "children": [
+                    "cta-title",
+                    "cta-text",
+                    "cta-link"
+                  ]
+                },
+                "cta-title": {
+                  "type": "Heading",
+                  "props": {
+                    "text": "次のアイデアを、\nここから。",
+                    "level": "h2",
+                    "size": "lg"
+                  }
+                },
+                "cta-text": {
+                  "type": "Text",
+                  "props": {
+                    "text": "まずは小さなページから。あなたの言葉が、サイトの最初の一歩になります。"
+                  }
+                },
+                "cta-link": {
+                  "type": "Link",
+                  "props": {
+                    "label": "つくり方を知る ↗",
+                    "href": "/guide",
+                    "variant": "primary"
+                  }
+                },
+                "footer": {
+                  "type": "Section",
+                  "props": {
+                    "spacing": "md",
+                    "tone": "dark"
+                  },
+                  "children": [
+                    "footer-width"
+                  ]
+                },
+                "footer-width": {
+                  "type": "Container",
+                  "props": {},
+                  "children": [
+                    "footer-text"
+                  ]
+                },
+                "footer-text": {
+                  "type": "Text",
+                  "props": {
+                    "text": "OPEN / STUDIO — Ideas into pages.",
+                    "size": "sm"
+                  }
+                }
+              }
+            },
+            "theme": {
+              "accent": "#d4ff5a",
+              "background": "#f7f8f2",
+              "foreground": "#18221a",
+              "font": "sans",
+              "radius": "lg"
+            }
+          }
+        }
+      },
+      {
+        "id": "guide-page",
+        "slug": "guide",
+        "status": "published",
+        "data": {
+          "title": "会話から、サイトをつくる。",
+          "description": "チャットでページを作るための3つのステップ。",
+          "document": {
+            "version": 1,
+            "spec": {
+              "root": "section",
+              "elements": {
+                "section": {
+                  "type": "Section",
+                  "props": {
+                    "spacing": "xl"
+                  },
+                  "children": [
+                    "container"
+                  ]
+                },
+                "container": {
+                  "type": "Container",
+                  "props": {
+                    "width": "narrow"
+                  },
+                  "children": [
+                    "stack"
+                  ]
+                },
+                "stack": {
+                  "type": "Stack",
+                  "props": {
+                    "gap": "lg"
+                  },
+                  "children": [
+                    "badge",
+                    "title",
+                    "intro",
+                    "step1",
+                    "step2",
+                    "step3",
+                    "back"
+                  ]
+                },
+                "badge": {
+                  "type": "Badge",
+                  "props": {
+                    "text": "Your next conversation"
+                  }
+                },
+                "title": {
+                  "type": "Heading",
+                  "props": {
+                    "text": {
+                      "$state": "/page/title"
+                    },
+                    "level": "h1",
+                    "size": "lg"
+                  }
+                },
+                "intro": {
+                  "type": "Text",
+                  "props": {
+                    "text": "AIのチャットから、サイトをつくり、確かめて、公開できます。"
+                  }
+                },
+                "step1": {
+                  "type": "Text",
+                  "props": {
+                    "text": "01 / つなぐ\nEmDashでログインし、チャットのMCP接続先にこのサイトを登録します。"
+                  }
+                },
+                "step2": {
+                  "type": "Text",
+                  "props": {
+                    "text": "02 / 伝える\nほしいページや変更内容を言葉で伝えます。AIが部品の仕様を読み、ページの下書きを保存します。"
+                  }
+                },
+                "step3": {
+                  "type": "Text",
+                  "props": {
+                    "text": "03 / 確かめる\nプレビューで見た目を確認してから公開。あとから直したいときも、会話の続きから。"
+                  }
+                },
+                "back": {
+                  "type": "Link",
+                  "props": {
+                    "label": "ホームへ戻る",
+                    "href": "/",
+                    "variant": "primary"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

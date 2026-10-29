@@ -1,0 +1,9 @@
+---
+import PageShell from '../PageShell.astro';
+import { pageResponse } from '@open-emdash/site-builder/server';
+const slug = Astro.params.slug || 'home';
+const { page, status } = await pageResponse(slug);
+Astro.response.status = status;
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<PageShell page={page} status={status} />
